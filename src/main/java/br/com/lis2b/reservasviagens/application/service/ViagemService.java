@@ -1,12 +1,10 @@
 package br.com.lis2b.reservasviagens.application.service;
 
-import java.util.List;
-
-import br.com.lis2b.reservasviagens.application.api.DestinoDTO;
-import br.com.lis2b.reservasviagens.application.api.ViagemResponse;
+import br.com.lis2b.reservasviagens.application.api.ViagemCotacaoRequest;
+import br.com.lis2b.reservasviagens.application.api.ViagemCotacaoResponse;
 
 public interface ViagemService {
 
-	List<ViagemResponse> buscarViagens(DestinoDTO destino);
+	ViagemCotacaoResponse gerarCotacao(ViagemCotacaoRequest cotacaoRequest);
 
 }

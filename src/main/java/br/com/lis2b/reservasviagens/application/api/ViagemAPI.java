@@ -1,10 +1,10 @@
 package br.com.lis2b.reservasviagens.application.api;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.lis2b.reservasviagens.application.service.ViagemService;
@@ -13,29 +13,18 @@ import lombok.extern.log4j.Log4j2;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/viagem")
+@RequestMapping("/viagem/cotacao")
 @Log4j2
 public class ViagemAPI {
-
 	private final ViagemService viagemService;
 
-	@GetMapping
-	public List<ViagemResponse> buscarViagens(@RequestParam int quantidadePessoas, @RequestParam String dataIda,
-			@RequestParam(required = false) String dataVolta, @RequestParam String localOrigem,
-			@RequestParam String localDestino) {
+	@ResponseStatus(code = HttpStatus.OK)
+	@PostMapping
+	public ViagemCotacaoResponse gerarCotacao(@RequestBody ViagemCotacaoRequest cotacaoRequest) {
 		log.info("[start] ViagemAPI - buscarViagens");
-		log.info("[quantidadePessoas] {} - [dataIda] {} - [dataVolta] {} - [localOrigem] {} - [localDestino] {}",
-				quantidadePessoas, dataIda, dataVolta, localOrigem, localDestino);
-		var destino = DestinoDTO.builder()
-				.localOrigem(localOrigem)
-				.localDestino(localDestino)
-				.quantidadePessoas(quantidadePessoas)
-				.dataIda(dataIda)
-				.dataVolta(dataVolta)
-				.build();
-
-		var viagens = viagemService.buscarViagens(destino);
+		log.info("[cotacaoRequest] {} ", cotacaoRequest);
+		var cotacao = viagemService.gerarCotacao(cotacaoRequest);
 		log.info("[finish] ViagemAPI - buscarViagens");
-		return viagens;
+		return cotacao;
 	}
 }
