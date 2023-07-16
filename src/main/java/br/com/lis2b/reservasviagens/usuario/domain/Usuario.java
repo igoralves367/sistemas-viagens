@@ -6,10 +6,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-
-import org.springframework.data.annotation.Id;
 
 import br.com.lis2b.reservasviagens.usuario.api.UsuarioNovoRequest;
 import lombok.AccessLevel;
@@ -23,10 +22,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Table(name = "Usuario")
+@Table(name = "usuario")
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(columnDefinition = "uuid", name = "idUsuario", updatable = false, unique = true, nullable = false)
 	private UUID idUsuario;
 	@Email
 	@Column(unique = true)

@@ -18,8 +18,8 @@ import lombok.extern.log4j.Log4j2;
 public class ViagemAPI {
 	private final ViagemService viagemService;
 
-	@ResponseStatus(code = HttpStatus.OK)
 	@PostMapping
+	@ResponseStatus(code = HttpStatus.OK)
 	public ViagemCotacaoResponse gerarCotacao(@RequestBody ViagemCotacaoRequest cotacaoRequest) {
 		log.info("[start] ViagemAPI - buscarViagens");
 		log.info("[cotacaoRequest] {} ", cotacaoRequest);

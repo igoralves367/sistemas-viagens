@@ -1,4 +1,4 @@
-package br.com.lis2b.reservasviagens.usuario.api.infra;
+package br.com.lis2b.reservasviagens.usuario.infra;
 
 import java.util.Optional;
 import java.util.UUID;
