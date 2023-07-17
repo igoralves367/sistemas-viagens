@@ -13,7 +13,7 @@ import lombok.extern.log4j.Log4j2;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/viagem/cotacao")
+@RequestMapping("/public/viagem/cotacao")
 @Log4j2
 public class ViagemAPI {
 	private final ViagemService viagemService;

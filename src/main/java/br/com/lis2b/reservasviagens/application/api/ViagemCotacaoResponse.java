@@ -3,14 +3,16 @@ package br.com.lis2b.reservasviagens.application.api;
 import java.time.LocalDate;
 import java.util.List;
 
+import javax.validation.constraints.NotBlank;
+
 import lombok.Getter;
 import lombok.ToString;
 
 @Getter
 @ToString
 public class ViagemCotacaoResponse {
-	private String localOrigem;
-	private String localDestino;
+    private String codigoOrigem;
+    private String codigoDestino;
 	private Integer quantidadePessoas;
 	private LocalDate dataIda;
 	private LocalDate dataVolta;
@@ -21,8 +23,8 @@ public class ViagemCotacaoResponse {
 	
 	public ViagemCotacaoResponse(ViagemCotacaoRequest cotacaoRequest, List<VooResponse> voos,
 			List<HospedagemResponse> hospedagens, List<AluguelVeiculoResponse> alugueisVeiculos) {
-		this.localOrigem = cotacaoRequest.getLocalOrigem();
-		this.localDestino = cotacaoRequest.getLocalDestino();
+		this.codigoOrigem = cotacaoRequest.getCodigoOrigem();
+		this.codigoDestino = cotacaoRequest.getCodigoDestino();
 		this.quantidadePessoas = cotacaoRequest.getQuantidadePessoas();
 		this.dataIda = cotacaoRequest.getDataIda();
 		this.dataVolta = cotacaoRequest.getDataVolta();

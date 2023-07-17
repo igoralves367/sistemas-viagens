@@ -2,6 +2,10 @@ package br.com.lis2b.reservasviagens.application.api;
 
 import java.time.LocalDate;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -10,10 +14,14 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 public class ViagemCotacaoRequest {
-	
-    private String localOrigem;
-    private String localDestino;
+	@NotBlank
+    private String codigoOrigem;
+	@NotBlank
+    private String codigoDestino;
+	@NotNull
+	@Min(value = 1)
     private Integer quantidadePessoas;
+	@NotNull
     private LocalDate dataIda;
 	private LocalDate dataVolta;
 }
