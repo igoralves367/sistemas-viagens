@@ -2,6 +2,9 @@
 
 O Sistema de Reservas de Viagens é uma aplicação que permite aos usuários buscar informações sobre voos, hotéis e aluguel de carros com base em suas preferências de quantidade de pessoas, datas e localizações.
 
+# C4 Model
+![C4 Model](https://github.com/igoralves367/sistemas-viagens/blob/4d1596db440b118a110e3c6ddfd7aa77317fc89a/src/main/resources/doc/Igor-Viagens-C4Model.png?raw=true)
+
 ## Funcionalidades
 
 - Buscar opções de viagem com base nos critérios de quantidade de pessoas, datas de ida e volta, local de origem e destino.
