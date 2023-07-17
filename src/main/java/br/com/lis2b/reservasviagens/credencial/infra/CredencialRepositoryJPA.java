@@ -13,22 +13,22 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 public class CredencialRepositoryJPA implements CredencialRepository {
-	private final CredencialJPARepository credencialMongoRepository;
+	private final CredencialJPARepository credencialJPARepository;
 
 	@Override
 	public Credencial salva(Credencial credencial) {
-		log.info("[start] CredencialRepositoryMongoDB - salva");
-		credencialMongoRepository.save(credencial);
-		log.info("[finish] CredencialRepositoryMongoDB - salva");
+		log.info("[start] CredencialRepositoryJPA - salva");
+		credencialJPARepository.save(credencial);
+		log.info("[finish] CredencialRepositoryJPA - salva");
 		return credencial;
 	}
 
 	@Override
 	public Credencial buscaCredencialPorUsuario(String usuario) {
-		log.info("[start] CredencialRepositoryMongoDB - buscaCredencialPorUsuario");
-		var credencial = credencialMongoRepository.findByUsuario(usuario).orElseThrow(
+		log.info("[start] CredencialRepositoryJPA - buscaCredencialPorUsuario");
+		var credencial = credencialJPARepository.findByUsuario(usuario).orElseThrow(
 				() -> APIException.build(HttpStatus.NOT_FOUND, "Não existe credencial para o Usuario informado!"));
-		log.info("[start] CredencialRepositoryMongoDB - buscaCredencialPorUsuario");
+		log.info("[start] CredencialRepositoryJPA - buscaCredencialPorUsuario");
 		return credencial;
 	}
 }
