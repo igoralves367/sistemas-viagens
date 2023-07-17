@@ -1,5 +1,7 @@
 package br.com.lis2b.reservasviagens.application.api;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +22,7 @@ public class ViagemAPI {
 
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.OK)
-	public ViagemCotacaoResponse gerarCotacao(@RequestBody ViagemCotacaoRequest cotacaoRequest) {
+	public ViagemCotacaoResponse gerarCotacao(@RequestBody @Valid ViagemCotacaoRequest cotacaoRequest) {
 		log.info("[start] ViagemAPI - buscarViagens");
 		log.info("[cotacaoRequest] {} ", cotacaoRequest);
 		var cotacao = viagemService.gerarCotacao(cotacaoRequest);

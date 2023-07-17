@@ -3,8 +3,6 @@ package br.com.lis2b.reservasviagens.application.api;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.validation.constraints.NotBlank;
-
 import lombok.Getter;
 import lombok.ToString;
 
