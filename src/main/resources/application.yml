@@ -1,6 +1,13 @@
 springdoc:
   swagger-ui:
     path: /public/swagger
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
     
 spring:
   datasource:
@@ -21,3 +28,10 @@ viagem:
   jwt:
     expiracao: ${JWT_TEMPO_EXPIRACAO:15}
     chave: ${JWT_CHAVE:123456}
+    
+logging:
+  level:
+    root: ${LOG_LEVEL:INFO}
+    org.springframework.web: ${LOG_LEVEL:INFO}
+    org.hibernate: ${LOG_LEVEL:INFO}
+    lis2b.igorviagens: ${LOG_LEVEL:INFO}
