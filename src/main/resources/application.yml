@@ -34,4 +34,8 @@ logging:
     root: ${LOG_LEVEL:INFO}
     org.springframework.web: ${LOG_LEVEL:INFO}
     org.hibernate: ${LOG_LEVEL:INFO}
-    lis2b.igorviagens: ${LOG_LEVEL:INFO}
+    br.com.lis2b.igorviagens: ${LOG_LEVEL:DEBUG}
+
+amadeus:
+  clientId: ${AMADEUS_CLIENT_ID:lOgvEO3Rn0R4yYdrog6eR9GQ3i6mYp12}
+  clientSecret: ${AMADEUS_CLIENT_SECRET:FcIDySJpV8Cz8ss3}
