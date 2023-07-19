@@ -5,15 +5,13 @@ import java.time.LocalDate;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@FeignClient(name = "vooAmadeusClient", url = "https://test.api.amadeus.com")
+@FeignClient(name = "vooAmadeusClient", url = "https://test.api.amadeus.com", configuration = AmadeusFeignConfiguration.class)
 public interface VooAmadeusClientFeing {
 
 	 @GetMapping("/v2/shopping/flight-offers")
 	    FlightOfferResponse buscaVoos(
-	        @RequestHeader("Authorization") String authorization,
 	        @RequestParam("originLocationCode") String codigoOrigem,
 	        @RequestParam("destinationLocationCode") String codigoDestino,
 	        @RequestParam("departureDate") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate dataIda,
