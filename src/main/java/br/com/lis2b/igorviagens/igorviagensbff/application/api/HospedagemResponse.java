@@ -17,7 +17,6 @@ public class HospedagemResponse {
 	private String hotel;
 	private BigDecimal precoTotal;
 	
-	
 	public HospedagemResponse(Hospedagem hospedagem) {
 		this.localizacao = hospedagem.getLocalizacao();
 		this.checkin = hospedagem.getCheckin();
