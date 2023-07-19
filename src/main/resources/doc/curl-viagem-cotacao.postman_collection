@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "2f6d0176-e9c8-43f1-b6da-624b64a6ed40",
+		"name": "SitemaViagem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23094206"
+	},
+	"item": [
+		{
+			"name": "Novo Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"igor@gmail.com\",\r\n  \"senha\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/public/usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"public",
+						"usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "autenticacao",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"usuario\": \"igor@gmail.com\",\r\n  \"senha\": \"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/public/autenticacao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"public",
+						"autenticacao"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BuscarViagem",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"codigoOrigem\":\"BPS\",\r\n\"codigoDestino\":\"SSA\",\r\n\"quantidadePessoas\":1,\r\n\"dataIda\":\"2023-08-01\",\r\n\"dataVolta\":\"2023-08-02\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/public/viagem/cotacao",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"public",
+						"viagem",
+						"cotacao"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
